@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.husain.accountsapp.ShowActivity">
 
 
@@ -42,6 +48,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="end"
+            android:layout_marginRight="10dp"
             android:background="@drawable/ic_edit_black_24dp"
             />
 
@@ -49,7 +56,8 @@
     </android.support.v7.widget.Toolbar>
 
     <TextView
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_acc_nm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Account Name"
@@ -61,8 +69,10 @@
         />
 
     <EditText
-        android:id="@+id/ed_accnm"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ed_acc_nm"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="e.g. Facebook"
@@ -74,7 +84,8 @@
 
 
     <TextView
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_unm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
@@ -84,7 +95,10 @@
         android:textColor="@android:color/black"/>
 
     <EditText
-        android:layout_marginTop="185dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ed_unm"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
@@ -92,7 +106,8 @@
         />
 
     <TextView
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
@@ -102,7 +117,10 @@
         android:textColor="@android:color/black"/>
 
     <EditText
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ed_pwd"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
@@ -111,8 +129,8 @@
 
 
     <Button
+        android:layout_marginTop="10dp"
         android:id="@+id/btn_aaf"
-        android:layout_marginTop="325dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif-monospace"
@@ -124,4 +142,112 @@
         android:textSize="20dp"
         />
 
-</RelativeLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_unset_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:fontFamily="serif-monospace"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/ed_unset_1"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:visibility="gone"
+        />
+
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_aaf_unset_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:layout_gravity="center_horizontal"
+        android:text="Add Another Field"
+        android:background="#fff"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_unset_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:fontFamily="serif-monospace"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        />
+
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/ed_unset_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        />
+
+
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_aaf_unset_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:layout_gravity="center_horizontal"
+        android:text="Add Another Field"
+        android:background="#fff"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_unset_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:fontFamily="serif-monospace"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:id="@+id/ed_unset_3"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        />
+
+
+
+
+</LinearLayout>
+</ScrollView>
