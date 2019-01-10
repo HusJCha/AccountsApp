@@ -5,38 +5,47 @@
     android:padding="40dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Field name"
         android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
         android:textSize="20dp"
         android:fontFamily="serif-monospace"
         />
 
     <EditText
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:backgroundTint="@color/colorPrimary"
         android:hint="Enter your Field Name"
         android:fontFamily="serif-monospace"
         android:id="@+id/ed_field"/>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="end" >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="end">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ok"
+        android:textColor="@color/colorPrimary"
+        android:background="#fff"
         android:id="@+id/btn_ok"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cancel"
+        android:textColor="@color/colorPrimary"
+        android:background="#fff"
         android:id="@+id/btn_cancel"/>
     </LinearLayout>
 </LinearLayout>
