@@ -1,7 +1,9 @@
 package com.example.husain.accountsapp;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -272,6 +274,24 @@ public class ShowActivity extends AppCompatActivity {
                         map.put("unm",unm);
                         map.put("pwd",pwd);
                         Boolean result = dbh.insert(map,i);
+                        if(result==true)
+                        {
+                            Intent i=new Intent(ShowActivity.this,HomeActivity.class);
+                            startActivity(i);
+                        }
+                        else
+                        {
+                            final AlertDialog.Builder d = new AlertDialog.Builder(ShowActivity.this);
+                            d.setTitle("Sorry");
+                            d.setMessage("Please Try Again!");
+                            d.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                            d.show();
+                        }
                     }
                 }
                 else if(i==2)

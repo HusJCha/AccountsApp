@@ -9,17 +9,29 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
-public class HomeActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class HomeActivity extends AppCompatActivity
+{
+    FloatingActionButton fab;
+    ListView lv;
+    DBHelper dbh;
+    ArrayList<HashMap<String,String>> list;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        dbh=new DBHelper(getApplicationContext(),"mydatabse",null,1);
+        lv = (ListView)findViewById(R.id.lv_of_list);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,7 +40,13 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        list = dbh.getAllRecord();
+        lv.setAdapter(new getAllRecordAdapterActivity(this,list));
+
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

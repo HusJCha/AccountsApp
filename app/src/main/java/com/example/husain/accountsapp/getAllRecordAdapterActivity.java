@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,9 +17,9 @@ public class getAllRecordAdapterActivity extends BaseAdapter {
 
 
     Context con;
-    ArrayList<HashMap<String,Object>> list;
+    ArrayList<HashMap<String,String>> list;
     LayoutInflater li;
-    public getAllRecordAdapterActivity(HomeActivity homeactivity, ArrayList<HashMap<String, Object>> array)
+    public getAllRecordAdapterActivity(HomeActivity homeactivity, ArrayList<HashMap<String, String>> array)
     {
         con = homeactivity;
         list = array;
@@ -47,12 +48,10 @@ public class getAllRecordAdapterActivity extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent)
     {
         convertView = li.inflate(R.layout.activity_get_all_record,null);
-        TextView tv_title = (TextView)convertView.findViewById(R.id.txt_list);
-
-        HashMap<String, Object> map = list.get(position);
-        String str_name = map.get("my_title").toString();
-
-        tv_title.setText(str_name);
+        TextView tv_list = (TextView)convertView.findViewById(R.id.tv_acc_nm);
+        HashMap<String, String> map = list.get(position);
+        String acc_nm = map.get("my_title");
+        tv_list.setText(acc_nm);
 
         return convertView;
     }

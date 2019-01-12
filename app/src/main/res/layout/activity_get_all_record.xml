@@ -7,16 +7,16 @@
     tools:context="com.example.husain.accountsapp.GetAllRecordActivity">
 
     <TextView
-        android:id="@+id/txt_list"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_acc_nm"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textSize="35dp"
+        android:textSize="20dp"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:textColor="#000000"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="Textview"/>
+        android:textColor="@color/colorPrimary"
+        android:text="Textview"
+        android:textStyle="bold"
+        android:fontFamily="monospace-serif"/>
 
 </RelativeLayout>

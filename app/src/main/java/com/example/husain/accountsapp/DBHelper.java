@@ -2,10 +2,12 @@ package com.example.husain.accountsapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -55,14 +57,34 @@ public class DBHelper extends SQLiteOpenHelper
             long result=db.insert("acc",null,cv);
             if(result==-1)
             {
-                Toast.makeText(con,"no",Toast.LENGTH_SHORT).show();
+                return false;
             }
             else
             {
-                Toast.makeText(con,"yes",Toast.LENGTH_SHORT).show();
+                return true;
             }
         }
         db.close();
         return true;
+    }
+
+    public ArrayList<HashMap<String,String>> getAllRecord()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
+        String query = "select * from acc";
+        Cursor c = db.rawQuery(query,null);
+        if(c.moveToFirst())
+        {
+            do
+            {
+                String acc_nm = c.getString(0);
+                HashMap<String,String> map = new HashMap<String,String>();
+                map.put("my_title",acc_nm);
+                list.add(map);
+            }while(c.moveToNext());
+        }
+        db.close();
+        return list;
     }
 }
