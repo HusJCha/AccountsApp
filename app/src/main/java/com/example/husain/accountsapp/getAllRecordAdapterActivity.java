@@ -50,7 +50,7 @@ public class getAllRecordAdapterActivity extends BaseAdapter {
         convertView = li.inflate(R.layout.activity_get_all_record,null);
         TextView tv_list = (TextView)convertView.findViewById(R.id.tv_acc_nm);
         HashMap<String, String> map = list.get(position);
-        String acc_nm = map.get("my_title");
+        String acc_nm = map.get("acc_nm");
         tv_list.setText(acc_nm);
 
         return convertView;

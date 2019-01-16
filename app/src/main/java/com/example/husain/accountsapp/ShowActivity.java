@@ -21,8 +21,9 @@ public class ShowActivity extends AppCompatActivity {
     int i=1;
     TextView tv_unset_1,tv_unset_2,tv_unset_3;
     EditText ed_acc_nm,ed_unm,ed_pwd,ed_unset_1,ed_unset_2,ed_unset_3;
-    String acc_nm,unm,pwd,unset_1,unset_2,unset_3;
+    String acc_nm,unm,pwd,unset_1,unset_2,unset_3,usfn_1,usfn_2,usfn_3;
     DBHelper dbh;
+    HashMap<String,String> record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +52,20 @@ public class ShowActivity extends AppCompatActivity {
         {
             btn_check.setVisibility(View.VISIBLE);
         }
-        else if(status == "open")
+        else
         {
+            btn_check.setVisibility(View.GONE);
             btn_edit.setVisibility(View.VISIBLE);
             btn_delete.setVisibility(View.VISIBLE);
+            String acc_nm=in.getStringExtra("acc_nm");
+            record = dbh.getRecord(acc_nm);
+            String unm = record.get("unm");
+            Toast.makeText(getApplicationContext(),unm,Toast.LENGTH_SHORT).show();
+            String pwd = record.get("pwd");
+            ed_acc_nm.setText(acc_nm);
+            ed_unm.setText(unm);
+            ed_pwd.setText(pwd);
         }
-        btn_check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         btn_aaf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -261,6 +265,9 @@ public class ShowActivity extends AppCompatActivity {
                 unset_1 = ed_unset_1.getText().toString();
                 unset_2 = ed_unset_2.getText().toString();
                 unset_3 = ed_unset_3.getText().toString();
+                usfn_1 = tv_unset_1.getText().toString();
+                usfn_2 = tv_unset_2.getText().toString();
+                usfn_3 = tv_unset_3.getText().toString();
                 if(i==1)
                 {
                     if (acc_nm.equals("") || unm.equals("") || pwd.equals(""))
@@ -300,6 +307,34 @@ public class ShowActivity extends AppCompatActivity {
                     {
                         Toast.makeText(getApplicationContext(), "Please Enter Credentials", Toast.LENGTH_LONG).show();
                     }
+                    else
+                    {
+                        HashMap<String,String> map =new HashMap<String, String>();
+                        map.put("acc_nm",acc_nm);
+                        map.put("unm",unm);
+                        map.put("pwd",pwd);
+                        map.put("usfn_1",usfn_1);
+                        map.put("usfv_1",unset_1);
+                        Boolean result = dbh.insert(map,i);
+                        if(result==true)
+                        {
+                            Intent i=new Intent(ShowActivity.this,HomeActivity.class);
+                            startActivity(i);
+                        }
+                        else
+                        {
+                            final AlertDialog.Builder d = new AlertDialog.Builder(ShowActivity.this);
+                            d.setTitle("Sorry");
+                            d.setMessage("Please Try Again!");
+                            d.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                            d.show();
+                        }
+                    }
                 }
                 else if(i==3)
                 {
@@ -307,12 +342,74 @@ public class ShowActivity extends AppCompatActivity {
                     {
                         Toast.makeText(getApplicationContext(), "Please Enter Credentials", Toast.LENGTH_LONG).show();
                     }
+                    else
+                    {
+                        HashMap<String,String> map =new HashMap<String, String>();
+                        map.put("acc_nm",acc_nm);
+                        map.put("unm",unm);
+                        map.put("pwd",pwd);
+                        map.put("usfn_1",usfn_1);
+                        map.put("usfv_1",unset_1);
+                        map.put("usfn_2",usfn_2);
+                        map.put("usfv_2",unset_2);
+                        Boolean result = dbh.insert(map,i);
+                        if(result==true)
+                        {
+                            Intent i=new Intent(ShowActivity.this,HomeActivity.class);
+                            startActivity(i);
+                        }
+                        else
+                        {
+                            final AlertDialog.Builder d = new AlertDialog.Builder(ShowActivity.this);
+                            d.setTitle("Sorry");
+                            d.setMessage("Please Try Again!");
+                            d.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                            d.show();
+                        }
+                    }
                 }
                 else if(i==4)
                 {
                     if (acc_nm.equals("") || unm.equals("") || pwd.equals("") || unset_1.equals("") || unset_2.equals("") || unset_3.equals(""))
                     {
                         Toast.makeText(getApplicationContext(), "Please Enter Credentials", Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        HashMap<String,String> map =new HashMap<String, String>();
+                        map.put("acc_nm",acc_nm);
+                        map.put("unm",unm);
+                        map.put("pwd",pwd);
+                        map.put("usfn_1",usfn_1);
+                        map.put("usfv_1",unset_1);
+                        map.put("usfn_2",usfn_2);
+                        map.put("usfv_2",unset_2);
+                        map.put("usfn_3",usfn_3);
+                        map.put("usfv_3",unset_3);
+                        Boolean result = dbh.insert(map,i);
+                        if(result==true)
+                        {
+                            Intent i=new Intent(ShowActivity.this,HomeActivity.class);
+                            startActivity(i);
+                        }
+                        else
+                        {
+                            final AlertDialog.Builder d = new AlertDialog.Builder(ShowActivity.this);
+                            d.setTitle("Sorry");
+                            d.setMessage("Please Try Again!");
+                            d.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                            d.show();
+                        }
                     }
                 }
             }

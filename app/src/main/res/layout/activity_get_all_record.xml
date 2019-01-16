@@ -10,13 +10,10 @@
         android:id="@+id/tv_acc_nm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textSize="20dp"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:textSize="25dp"
         android:textColor="@color/colorPrimary"
         android:text="Textview"
-        android:textStyle="bold"
-        android:fontFamily="monospace-serif"/>
+        android:fontFamily="serif-monospace"/>
+
 
 </RelativeLayout>
